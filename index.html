@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-H13EFXBPKL"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-H13EFXBPKL');
+	</script>
+	<!-- Google Tag Manager -->
+	<script>(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start':
+					new Date().getTime(), event: 'gtm.js'
+			}); var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'GTM-WJ5WD2NX');</script>
+	<!-- End Google Tag Manager -->
+
+	<!-- Metadata 2024 -->
+	<meta charset="utf-8">
+	<title>Housing Needs Assessment</title>
+	<meta name="description" content="Explore the Town of Stowe Housing Needs Assessment.">
+	<meta name="keywords" content="Stowe, Vermont, Housing, Urban Planning, CommunityScale, Assessment, Dashboard">
+	<meta name="author" content="CommunityScale">
+	<link rel="canonical" href="https://communityscale.github.io/Stowe/">
+	<meta property="og:title" content="Stowe Housing Needs Assessment">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://communityscale.github.io/Stowe/">
+	<meta property="og:image" content="https://raw.githubusercontent.com/CommunityScale/Stowe/main/images/socialcard.jpg">
+	<meta property="og:description" content="Housing Study educational dashboard for the Town of Stowe, VT. Provides detailed analysis and insights on housing trends, affordability, and needs.">
+	<meta property="og:site_name" content="CommunityScale">
+	<meta property="og:locale" content="en_US">
+	<meta property="article:author" content="CommunityScale">
+	<meta property="article:tag" content="Urban Planning">
+	<meta property="article:tag" content="Housing">
+	<meta property="article:tag" content="Stowe Vermont">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Stowe Housing Needs Assessment">
+	<meta name="twitter:description" content="Explore the Town of Stowe Housing Needs Assessment.">
+	<meta name="twitter:image" content="https://raw.githubusercontent.com/CommunityScale/Stowe/main/images/socialcard.jpg">
+	<meta name="twitter:creator" content="@CommunityScale">
+	<meta http-equiv="content-language" content="en">
+
+	<!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/cs-template.css">
+
+	<!-- Fonts / icons / table
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Gloock:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://kit.fontawesome.com/b6b458829a.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
+
+	<!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+
+<body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJ5WD2NX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+	<!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+	<!-- Sticky header -->
+	<div class="sticky">
+		<div class="topnav">
+			<div class="logo-and-menu">
+				<p class="inline-text">
+					<img src="images/client/client-logo.png" alt="Town of Stowe Vermont" class="inline-logo">
+
+
+					<span class="title"><b>Housing Needs Assessment</b></span>
+				</p>
+				<div class="nav-options">
+					<div class="desktop-pages">
+						<!-- Links must be added here for desktop -->
+						<a href="#Top"><span class="fa fa-arrow-up"></span> Top</a>
+						<a href="#Overview">Overview </a>
+						<a href="#Findings">Findings </a>
+						<a href="#Strategies">Strategies</a>
+					</div>
+					<div id="clickDiv" class="mobile-menu-icon">
+						<a class="menu-icon">
+							<i class="fa fa-bars"></i>
+						</a>
+					</div>
+				</div>
+
+			</div>
+			<div id="targetDiv" class="">
+				<!-- Links must be added here again for mobile -->
+				<a href="#Top"><span class="fa fa-arrow-up"></span> Top</a>
+				<a href="#Overview">Overview </a>
+				<a href="#Findings">Findings </a>
+				<a href="#Strategies">Strategies</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Cover banner -->
+	<div class="cover" id="Top" style="background:linear-gradient(to right,rgb(81, 102, 69,.8) 60%,rgba(81, 102, 69,.5)), url(images/client/cover-background.png) no-repeat center center; background-size: cover;">
+
+		<div class="container" style="margin-top: 0">
+			<h1>Town of Stowe
+				<br><span style="font-weight: normal;">Housing Needs Assessment</span>
+			</h1>
+			<div class="row">
+				<div class="eight columns" style="margin-top: 2%;">
+					<p>This dashboard supports the Town of Stowe's development of a Housing Needs Assessment, led by town staff and the <a href="https://www.stowevt.gov/Government/Housing-Task-Force" target="_blank" rel="noopener noreferrer">Housing Task Force</a> with support from <a href="https://communityscale.io/" target="_blank" rel="noopener noreferrer">CommunityScale</a>. Still early in the process, this dashboard is currently limited to preliminary findings as we continue analysis and outreach activities. This dashboard will continue to expand and evolve as the planning process unfolds and results take shape.</p>
+					<div class="chip-container">
+						<a href="#Overview"><button class="button-primary">Purpose of this plan</button></a>
+						<a href="#Findings"><button class="button-primary">Key indicators from the analysis</button></a>
+						<a href="#Strategies"><button class="button-primary">Draft strategies emerging from the plan</button></a>
+						<!--
+						<a href="survey.html"><button class="button-primary"><span class="fa fa-user"></span>Take the housing survey</button></a>
+						-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 
+╭────────────────────────╮
+|    OVERVIEW            |
+╰────────────────────────╯
+-->
+
+<div class="container" id="Overview">
+	<div class="row">
+		<div class="twelve columns" style="margin-top: 2%">
+			<h3>The Housing Needs Assessment's purpose</h3>
+			<p>A culminating outcome of the <a href="https://www.stowevt.gov/Government/Housing-Task-Force" target="_blank" rel="noopener noreferrer">Affordable Housing Task Force’s</a> 12-month tenure, this report includes a detailed analysis of Stowe’s housing challenges and provides an action plan of strategies and solutions by:</p>
+			<ul>
+				<li>Assessing the housing needs of current and future year-round Stowe residents.</li>
+				<li>Evaluating the existing housing stock to identify gaps that future development should seek to fill.</li>
+				<li>Incorporating feedback from stakeholders and residents on analysis findings and potential solutions.</li>
+				<li>Compiling strategies from previous planning efforts within Stowe and relevant models elsewhere in the country.</li>
+				<li>Conducting a cost-benefit analysis of available strategies to highlight those with the highest potential impact toward more attainable housing in Stowe.</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- Row three call outs -->
+	<div class="row">
+		<h5>Goals for this study:</h5>
+		<div class="boxes">
+			<div class="box">
+				<div class="large-icon">
+					<img src="images/theme/Frame 7.png" class="inline-image">
+				</div>
+				<h5>Measure and describe housing need in Stowe, especially for affordable housing.</h5>
+			</div>
+			<div class="box">
+				<div class="large-icon">
+					<img src="images/theme/Frame 3.png" class="inline-image">
+				</div>
+				<h5>Convene and inform a community conversation around housing needs and priorities in Stowe.</h5>
+			</div>
+			<div class="box">
+				<div class="large-icon">
+					<img src="images/theme/Frame 2.png" class="inline-image">
+				</div>
+				<h5>Help inform Town’s direct investments in attainable housing production.</h5>							
+			</div>
+			<div class="box">
+				<div class="large-icon">
+					<img src="images/theme/Frame 4.png">
+				</div>
+				<h5>Introduce new strategies to address affordability challenges.</h5>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="divider" id="Findings" style="background:linear-gradient(to right,rgba(255, 255, 255, 0.9),rgba(255, 255, 255, 0.8)), url(images/theme/village.jpg); background-repeat: no-repeat; background-size: cover">
+	<div class="container">
+		<div class="twelve columns center-align">
+			<div class="divider-header">
+				<h2 class="inline-text">Key indicators</h2>
+			</div>
+			<h6>Narrative in progress...</h6>
+			<div class="chip-container">
+				<a href="#Vision"><button class="button-primary">Vision</button></a>
+				<a href="#Development"><button class="button-primary">Development</button></a>
+				<a href="#Non-homestead"><button class="button-primary">Non-homestead</button></a>
+				<a href="#Affordability"><button class="button-primary">Affordability challenges</button></a>
+				<a href="#Workforce"><button class="button-primary">Workforce</button></a>
+				<a href="#Aging"><button class="button-primary">Aging</button></a>
+				<a href="#Schools"><button class="button-primary">Schools</button></a>
+				<a href="#Barriers"><button class="button-primary">Barriers</button></a>
+				<a href="#Strategies"><button class="button-primary">Strategies</button></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class="divider" id="Vision" style="margin-top: 0%; padding-top: 0; margin-bottom: 0%; padding-bottom: 0;">
+		<div class="container" style="margin-bottom: 0%; padding-bottom: 0;">
+			<div class="row insight-box">
+				<!-- Heading Row -->
+				<div class="twelve columns" style="margin-bottom: 0%;">
+					<h3>Housing is fundamental to Stowe’s vision for a sustainable community.</h3>
+				</div>
+				<!-- Main Content Row -->
+				<div class="four columns" style="margin-top: 2%; margin-left: 0;">
+					<p>To sustain and advance the community’s vision for itself, Stowe needs attainable housing for:</p>
+					<ul>
+						<li><b>Families</b> with kids to enroll in local schools</li>
+						<li><b>Workers</b> to staff local businesses</li>
+						<li><b>Local seniors</b> who need to downsize</li>
+						<li><b>Young adults</b> who grew up here and want to stay or come back</li>
+						<li><b>Tax base</b> to help fund necessary municipal services and investments</li>
+						<li><b>Full-time residents</b> to join boards and lead community organizations</li>
+					</ul>
+				</div>
+				<div class="six columns" style="margin-top: 2%">
+					<img src="images\client\draft-vision.jpg" width="100%">
+					<figcaption style="font-size: 0.8rem; margin-top: 0.5rem;">Draft vision and action priorities from Stowe 2050 planning process.</figcaption>
+				</div>
+			</div>
+
+			<div class="row insight-box" id="Development">
+				<!-- Heading Row -->
+				<div class="twelve columns" style="margin-bottom: 0%;">
+					<h3>Stowe is building at the right pace - but many new units are not going to full-time residents.</h3>
+				</div>
+				<!-- Main Content Row -->
+				<div class="four columns" style="margin-top: 2%; margin-left: 0;">
+					<p>Stowe has built more than 500 units over the past decade. Continuing at this pace would provide enough units to keep up with potential growth over the next decade. However, most new units built in Stowe are absorbed as second homes and vacation rentals.</p>
+				</div>
+				<div class="eight columns" style="margin-top: 2%">
+					<iframe title="Building permits issued over time by structure type" aria-label="Stacked Columns" id="datawrapper-chart-tvZJV" src="https://datawrapper.dwcdn.net/tvZJV/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="412" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
+					</script>
+					<figcaption style="font-size: 0.8rem; margin-top: 0.5rem;">Midday is the busiest time of day, with the most visitors coming at 7PM.</figcaption>
+				</div>
+			</div>
+
+			<div class="row insight-box" id="Non-homestead">
+				<!-- Heading Row -->
+				<div class="twelve columns" style="margin-bottom: 0%;">
+					<h3>Non-homestead properties outnumber and out-compete homesteads.</h3>
+				</div>
+				<!-- Main Content Row -->
+				<div class="four columns" style="margin-top: 2%; margin-left: 0;">
+					<p>Only about ⅓ of residential properties file homestead exemptions.</p>
+					<p>According to local realtors, as few as 1 in 10 clients are looking for full-time residence in Stowe (the rest are second home buyers).</p>
+					<p>The map at right indicates the 343 non-homestead properties that might be suitable as year-round housing (i.e. less than 3,000sf).</p>
+				</div>
+				<div class="eight columns" style="margin-top: 2%">
+					<img src="images/non-homestead-map.jpg" width="100%">
+					<figcaption style="font-size: 0.8rem; margin-top: 0.5rem;">Non-homestead parcels particularly suitable for year-round housing are most concentrated in and around village centers.</figcaption>
+				</div>
+			</div>
+
+			<div class="row insight-box" id="Affordability">
+				<!-- Heading Row -->
+				<div class="twelve columns" style="margin-bottom: 0%;">
+					<h3>Housing is completely unaffordable for most existing and prospective full-time residents.</h3>
+				</div>
+				<!-- Main Content Row -->
+				<div class="four columns" style="margin-top: 2%; margin-left: 0;">
+					<p>This chart compares the median listing price in Stowe with the home value attainable to a household earning the median household income. A wider gap means higher barrier to entry for first-time homebuyers and increased risk that an existing resident might be priced out of the community if they choose or need to move to a different house.</p>
+					<p>Median income households have been priced out of the local market for more than a decade. This chart also includes a line tracking prices affordable to the typical household interested in moving to Stowe full-time (earning an estimated double the median household income). These more affluent buyers could afford housing in Stowe until the Covid pandemic, at which point Stowe became unaffordable to nearly all potential full-time residents.</p>
+				</div>
+				<div class="eight columns" style="margin-top: 2%">
+					<iframe title="How affordable is Stowe?" aria-label="Interactive line chart" id="datawrapper-chart-fCY1U" src="https://datawrapper.dwcdn.net/fCY1U/4/" scrolling="no" frameborder="0" style="border: none;" width="600" height="532" data-external="1"></iframe>
+				</div>
+			</div>
+
+			<div class="row insight-box" id="Null">
+				<!-- Heading Row -->
+				<div class="twelve columns" style="margin-bottom: 0%;">
+					<h3>The median home price of $926k is unattainable to residents in virtually all local professions.</h3>
+				</div>
+				<!-- Main Content Row -->
+				<div class="four columns" style="margin-top: 2%; margin-left: 0;">
+					<p>Stowe’s median home price is over $900k, a figure even local lawyers and computer science workers would struggle to afford. Workers in lower paying - but still traditionally middle class - jobs have no choice but to live outside of Stowe despite working local jobs that contribute to the economy and community.</p>
+				</div>
+				<div class="six columns" style="margin-top: 2%">
+					<iframe title="Attainable housing costs by occupation" aria-label="Table" id="datawrapper-chart-b1iFd" src="https://datawrapper.dwcdn.net/b1iFd/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="420" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
+					</script>				
+				</div>
+			</div>
+
+			<div class="row insight-box" id="Workforce">
+				<!-- Heading Row -->
+				<div class="twelve columns" style="margin-bottom: 0%;">
+					<h3>Most of Stowe’s local workforce commutes from out of town, including some who travel long distances.</h3>
+				</div>
+				<!-- Main Content Row -->
+				<div class="four columns" style="margin-top: 2%; margin-left: 0;">
+					<p>About three quarters of Stowe’s workforce lives outside of town. Though detailed spatial income data is not available for these workers, anecdotal reports suggest most of the lower-income workforce resides to the north and east of Stowe while the higher-income workforce resides south and west. Additionally, the number of extremely long commutes has gradually increased over the years, suggesting some workers have to travel further from Stowe to find housing they can afford.</p>
+					<p>15-20% of Stowe residents worked from home (2023 Census ACS 5-year). This data does not account for many seasonal workers such as J1 Visa holders who often live in employer-sponsored dormitories and thus somewhat outside the competitive housing market.</p>
+				</div>
+				<div class="six columns" style="margin-top: 2%">
+					<img src="images/workers-map.jpg" width="100%">
+					<figcaption style="font-size: 0.8rem; margin-top: 0.5rem;">Where people live who work in Stowe.</figcaption>
+				</div>
+			</div>
+
+			<div class="row insight-box" id="Aging">
+				<!-- Heading Row -->
+				<div class="twelve columns" style="margin-bottom: 0%;">
+					<h3>The Stowe population is aging rapidly, with a diminishing share of fewer young adults and families.</h3>
+				</div>
+				<!-- Main Content Row -->
+				<div class="four columns" style="margin-top: 2%; margin-left: 0;">
+					<p>Like many other parts of the country, most of Stowe’s growth is among seniors aged 65 and above. There is some growth among other cohorts but the young adult population (20-34) is projected to continue declining.</p>
+					<p>Each age group has different housing preferences, such as larger homes for families or a mix of smaller ownership and rental options for young adults and seniors interested in downsizing.</p>
+				</div>
+				<div class="eight columns" style="margin-top: 2%">
+					<iframe title="Population change over time by age group" aria-label="Interactive area chart" id="datawrapper-chart-ZH288" src="https://datawrapper.dwcdn.net/ZH288/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="424" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
+					</script>
+					<figcaption style="font-size: 0.8rem; margin-top: 0.5rem;">This chart illustrates trends in population by age cohort, both historic and projected. The projection is based on recent trends extended. Depending on economic, policy, and other conditions, the future age distribution may vary over time.</figcaption>
+				</div>
+			</div>
+
+			<div class="row insight-box" id="Null">
+				<!-- Heading Row -->
+				<div class="twelve columns" style="margin-bottom: 0%;">
+					<h3>The housing stock needs to be rebalanced to reflect preferences of a growing senior population.</h3>
+				</div>
+				<!-- Main Content Row -->
+				<div class="four columns" style="margin-top: 2%; margin-left: 0;">
+					<p>Households aged 50+ constitute nearly all of Stowe’s projected net-new household growth over the next decade. Those in this cohort interested in moving to a new unit tend to prefer smaller homes with fewer bedrooms and less maintenance requirements, such as attached single family and multifamily apartment and condo options.</p>
+					<p>While detached single family homes will always represent an important part of the housing stock, Stowe will need a higher proportion of smaller alternatives to keep up with the rapidly growing senior population over the next decade.</p>
+				</div>
+				<div class="eight columns" style="margin-top: 2%">
+					<iframe title="Comparing current housing stock to emerging preferences" aria-label="Stacked Columns" id="datawrapper-chart-B676D" src="https://datawrapper.dwcdn.net/B676D/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="413" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
+					</script>
+				</div>
+			</div>
+
+			<div class="row insight-box" id="Schools">
+				<!-- Heading Row -->
+				<div class="twelve columns" style="margin-bottom: 0%;">
+					<h3>School enrollment is at risk of declining without new families moving to Stowe.</h3>
+				</div>
+				<!-- Main Content Row -->
+				<div class="four columns" style="margin-top: 2%; margin-left: 0;">
+					<p>While Stowe’s school enrollment has been holding steady for some time, declining numbers of young households - especially in the 20-34 age group - could foreshadow fewer new families entering the school system in the future.</p>
+					<p>Indeed, enrollment among K-2 grades has been dropping significantly over the past several years. This could be a trailing indicator of many fewer new families moving to Stowe since Covid a few years ago, when many of today’s kindergarteners were born. The more directly the correlation between a spike in housing prices and a decline in young student enrollees, the more difficult it may prove to reverse this trend.</p>
+					<p>Beyond impacting school stability and community sustainability, declining enrollment contributes to higher taxes on homestead households. State school funding issued on a per-pupil basis, so fewer students means more burden on homestead taxpayers to pick up any slack in the local school budget.</p>
+				</div>
+				<div class="six columns" style="margin-top: 2%">
+					<iframe title="Stowe school enrollment trends by grade level" aria-label="Interactive area chart" id="datawrapper-chart-Amnh5" src="https://datawrapper.dwcdn.net/Amnh5/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="417" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
+					</script>
+				</div>
+			</div>
+
+			<div class="row insight-box" id="Barriers">
+				<!-- Heading Row -->
+				<div class="twelve columns" style="margin-bottom: 0%;">
+					<h3>There are numerous barriers to affordable housing production and access in Stowe.</h3>
+				</div>
+				<!-- Main Content Row -->
+				<div class="eight columns" style="margin-top: 2%; margin-left: 0;">
+					<p><b>Costs:</b> Construction costs and labor shortages are driving up prices and diverting resources and investment to second home construction.</p>
+					<p><b>Competition:</b> Existing and prospective full-time residents cannot compete with second home and short-term rental markets.</p>
+					<p><b>Land:</b> Tier 1 areas where higher density is allowed are limited in scale and don’t include significant development opportunity sites.</p>
+					<p><b>Infrastructure:</b> There is sufficient sewer capacity - and water in most places - but access is largely limited to the Mountain Road corridor.</p>
+					<p><b>Legal structure:</b> State law and tax rules limit the Town’s ability to raise funds and provide financing incentives.</p>
+					<p><b>Funding:</b> Federal and state affordable housing subsidies are scarce and competitive.</p>
+					<p><b>Sentiment:</b> The community lacks a clear vision of what it wants, where, and how, delaying or discouraging development.</p>
+				</div>
+			</div>
+
+			<div class="row insight-box" id="Strategies">
+				<!-- Heading Row -->
+				<div class="twelve columns" style="margin-bottom: 0%;">
+					<h3>Stowe needs an “all of the above” strategic plan.</h3>
+				</div>
+				<!-- Main Content Row -->
+				<div class="six columns" style="margin-top: 2%; margin-left: 0;">
+					<p><b>Zoning:</b> Expand housing capacity along Mountain Road and accommodate more infill opportunities such as “missing middle” and ADUs.</p>
+					<p><b>Mixed-income:</b> Take advantage of the second home market’s high cost tolerance to cross subsidize affordable units with market rate.</p>
+					<p><b>Trust fund:</b> Establish and contribute to a discretionary housing trust fund.</p>
+					<p><b>Manage STRs:</b> Cap the short-term rental supply, manage allocation of new permits, and restrict permit transfers.</p>
+					<p><b>Vision:</b> Clarify the Town’s housing vision and define what the community wants where for more predictability.</p>
+				</div>
+				<div class="six columns" style="margin-top: 2%; margin-left: 10;">
+				<p><b>Public land:</b> Develop town-owned land as affordable or mixed-income housing with conditions.</p>
+				<p><b>Finance:</b> Establish “perpetually affordable housing” as a basis for public financing tools like TIFs (catalytic infrastructure investment).</p>
+				<p><b>Preserve:</b> Explore a voluntary deed restriction program.</p>
+				<p><b>Advocate:</b> Continue lobbying at the State House to support ongoing statewide housing reform but also to highlight Stowe’s unique circumstances and constraints.</p>
+				<p><b>Partner:</b> Expand partnerships with affordable housing developers and providers, such as Downstreet.</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<!-- 
+╭────────────────────────╮
+|    Footer              |
+╰────────────────────────╯
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+	<div class="footer" style="background:linear-gradient(to right,white 80%,rgba(34, 124, 157,.1));">
+		<div class="container">
+			<div class="unresponsive" style="margin-bottom: 30px;">
+				<div class="content-size"><a href="https://www.downtownsyracuse.com/"><img class="no-rounded-edges" src="./images/client/client-logo.png" height="auto" width="30px" title="CommunityScale" alt="CommunityScale"></a></div>
+				<div class="fill-space">
+					<p class=""><a href="https://www.stowevt.gov/Home" target="_blank">Town of Stowe</a></p>
+				</div>
+			</div>
+			<div class="unresponsive">
+				<div class="content-size"><a href="http://communityscale.io"><img class="no-rounded-edges" src="./images/CommunityScale-logo.png" height="auto" width="30px" title="CommunityScale" alt="CommunityScale"></a></div>
+				<div class="fill-space">
+					<p class=""><a href="http://communityscale.io" target="blank">CommunityScale</a> is a pioneering urban planning and spatial data analysis company serving clients across the United States. Follow us on <a href="https://www.linkedin.com/company/communityscale">LinkedIn</a> and <a href="https://twitter.com/CommunityScale">X</a>.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="nav-javascript.js"></script>
+
+	<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+
+</html>
