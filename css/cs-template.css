@@ -127,11 +127,11 @@ Table of contents
 }
 
 .cover a {
-  color: rgb(255, 201, 68);
+  color: rgb(203,196,180);
 }
 
 .cover a:hover {
-  color: #ffe243;
+  color: #FFFFFF;
 }
 
 .overview {
@@ -681,11 +681,11 @@ figcaption {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #227C9D;
+  color: #252C31;
 }
 
 a:hover {
-  color: #FE6D73;
+  color: #cbc4b4;
 }
 
 /* Navbar
