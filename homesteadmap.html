@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Display a globe on a webpage</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1Ijoic2FyYWJyZW50IiwiYSI6ImNtMHpsb2Q4NTAwemoybHExbnB6eHVvZ2kifQ.nH0hUSv3IGzX6MkYB_cSmA';
+    const map = new mapboxgl.Map({
+        container: 'map',
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/mapbox/light-v11',
+        zoom: 12,
+        center: [-72.688122,44.467397],
+        projection: 'globe'
+    });
+
+    map.on('load', () => {
+        // Set the default atmosphere style
+        map.setFog({});
+
+        map.addSource('mapillary', {
+            'type': 'vector',
+            'tiles': [
+                'https://tiles.mapillary.com/maps/vtp/mly1_public/2/{z}/{x}/{y}?access_token=MLY|4142433049200173|72206abe5035850d6743b23a49c41333'
+            ],
+            'minzoom': 6,
+            'maxzoom': 14
+        })
+
+        map.addSource('StoweHome', {
+            type: 'geojson',
+            data: 'StoweHome.geojson'
+        })
+
+        map.addSource('StoweNoHome', {
+            type: 'geojson',
+            data: 'StoweNoHome.geojson'
+        })
+
+        map.addSource('StoweAllResi', {
+            type: 'geojson',
+            data: 'StoweAllResi2.geojson'
+        });
+
+        map.addLayer({
+    id: 'StoweHome-points',
+    type: 'circle',
+    source: 'StoweAllResi',
+    paint: {
+        'circle-color': [
+            'match',
+            ['get', 'home'],
+            'yes', '#1E88E5',
+            'no', '#D81B60',
+            '#cccccc' // default color if value doesn't match
+        ],
+        'circle-radius': {
+            'base': 1.75,
+            'stops': [
+                [12, 2],
+                [22, 180]
+            ]
+        }
+    }
+});s
+
+
+    });
+
+</script>
+
+</body>
+</html>
