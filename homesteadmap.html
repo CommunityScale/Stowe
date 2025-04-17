@@ -20,7 +20,7 @@ body { margin: 0; padding: 0; }
         container: 'map',
         // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
         style: 'mapbox://styles/mapbox/light-v11',
-        zoom: 12,
+        zoom: 11,
         center: [-72.688122,44.467397],
         projection: 'globe'
     });
@@ -34,18 +34,8 @@ body { margin: 0; padding: 0; }
             'tiles': [
                 'https://tiles.mapillary.com/maps/vtp/mly1_public/2/{z}/{x}/{y}?access_token=MLY|4142433049200173|72206abe5035850d6743b23a49c41333'
             ],
-            'minzoom': 6,
+            'minzoom': 8,
             'maxzoom': 14
-        })
-
-        map.addSource('StoweHome', {
-            type: 'geojson',
-            data: 'StoweHome.geojson'
-        })
-
-        map.addSource('StoweNoHome', {
-            type: 'geojson',
-            data: 'StoweNoHome.geojson'
         })
 
         map.addSource('StoweAllResi', {
