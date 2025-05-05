@@ -77,6 +77,25 @@ body { margin: 0; padding: 0; }
             data: 'StoweAllResi2.geojson'
         });
 
+        map.addSource('STR', {
+            type: 'geojson',
+            data: 'STRSpoints.geojson'
+        });
+
+        map.addSource('boundary', {
+            type: 'geojson',
+            data: 'Boundary.geojson'
+        });
+
+        map.addLayer({
+            id: 'boundary',
+            type: 'line',
+            source: 'boundary',
+            paint: {
+                'line-color': 'white'
+            }
+        });
+
         map.addLayer({
         id: 'StoweHome-points',
         type: 'circle',
@@ -99,10 +118,11 @@ body { margin: 0; padding: 0; }
     }
         });
 
-        
+
 
 
     });
+
 
 </script>
 
