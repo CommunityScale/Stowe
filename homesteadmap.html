@@ -87,6 +87,11 @@ body { margin: 0; padding: 0; }
             data: 'Boundary.geojson'
         });
 
+        map.addSource('resi', {
+            type: 'geojson',
+            data: 'resipoints.geojson'
+        });
+
         map.addLayer({
             id: 'boundary',
             type: 'line',
@@ -97,16 +102,17 @@ body { margin: 0; padding: 0; }
         });
 
         map.addLayer({
-        id: 'StoweHome-points',
+        id: 'ResiAll',
         type: 'circle',
-        source: 'StoweAllResi',
+        source: 'resi',
         paint: {
-        'circle-color': [
+
+            'circle-color': [
             'match',
-            ['get', 'home'],
+            ['get', 'homestead'],
             'yes', '#1E88E5',
             'no', '#FFC107',
-            '#cccccc' // default color if value doesn't match
+            'black' // default color if value doesn't match
         ],
         'circle-radius': {
             'base': 3,
@@ -119,7 +125,7 @@ body { margin: 0; padding: 0; }
         });
 
 
-
+        map.setFilter('STR-homestead-or-no', ['==', ['get', 'STR__5__bookings_'], 'Yes']);
 
     });
 
