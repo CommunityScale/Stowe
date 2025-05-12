@@ -92,7 +92,7 @@ originalGeoJSON = JSON.parse(JSON.stringify(data));
                                 'no', '#FFC107',
                                 '#000000'
                             ],
-                            'circle-radius': 4,
+                            'circle-radius': 6,
                             'circle-stroke-color': '#000',
                             'circle-stroke-width': 1
                         }
@@ -105,9 +105,9 @@ originalGeoJSON = JSON.parse(JSON.stringify(data));
                         filter: ['==', ['get', 'hasDuplicates'], true],
                         paint: {
                             'circle-color': 'white',
-                            'circle-radius': 12,
+                            'circle-radius': 16,
                             'circle-blur': 0.8,
-                            'circle-opacity': 0.2
+                            'circle-opacity': 1
                         }
                     }, 'ResiAll');
 
@@ -131,8 +131,8 @@ originalGeoJSON = JSON.parse(JSON.stringify(data));
                             const dx = radius * Math.cos(angle);
                             const dy = radius * Math.sin(angle);
                             fanned.features[idx].geometry.coordinates = [
-                                centerCoord[0] + dx,
-                                centerCoord[1] + dy
+                                centerCoord[0] + (dx*1.5),
+                                centerCoord[1] + (dy*1)
                             ];
                         });
 
