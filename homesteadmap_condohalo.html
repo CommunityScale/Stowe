@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Condo halo on hover</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1Ijoic2FyYWJyZW50IiwiYSI6ImNtMHpsb2Q4NTAwemoybHExbnB6eHVvZ2kifQ.nH0hUSv3IGzX6MkYB_cSmA';
+        const map = new mapboxgl.Map({
+            container: 'map',
+            // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+            style: 'mapbox://styles/mapbox/satellite-streets-v12',
+            zoom: 11,
+            center: [-72.688122, 44.467397],
+            projection: 'globe'
+        });
+
+        let originalGeoJSON;
+
+
+
+        map.on('load', () => {
+            map.addSource('boundary', {
+                type: 'geojson',
+                data: 'Boundary.geojson'
+            });
+
+            map.addLayer({
+                id: 'boundary',
+                type: 'line',
+                source: 'boundary',
+                paint: {
+                    'line-color': 'white'
+                }
+            });
+
+            fetch('AllPointsWithUnits.geojson')
+                .then(res => res.json())
+                .then(data => {
+                    // Store original data for restoration later
+// 🔧 Step 1: Count duplicate coordinates
+const coordMap = {};
+data.features.forEach(f => {
+  const key = f.geometry.coordinates.join(',');
+  coordMap[key] = (coordMap[key] || 0) + 1;
+});
+
+// 🔧 Step 2: Tag features with hasDuplicates
+data.features.forEach(f => {
+  const key = f.geometry.coordinates.join(',');
+  f.properties.hasDuplicates = coordMap[key] > 1;
+});
+
+// 🔧 Step 3: Now clone with tags intact
+originalGeoJSON = JSON.parse(JSON.stringify(data));
+
+                    map.addSource('resi2', {
+                        type: 'geojson',
+                        data: data
+                    });
+
+
+                    map.addLayer({
+                        id: 'ResiAll',
+                        type: 'circle',
+                        source: 'resi2',
+                        paint: {
+                            'circle-color': [
+                                'match',
+                                ['get', 'homestead'],
+                                'yes', '#1E88E5',
+                                'no', '#FFC107',
+                                '#000000'
+                            ],
+                            'circle-radius': 4,
+                            'circle-stroke-color': '#000',
+                            'circle-stroke-width': 1
+                        }
+                    });
+
+                    map.addLayer({
+                        id: 'ResiAll-halo',
+                        type: 'circle',
+                        source: 'resi2',
+                        filter: ['==', ['get', 'hasDuplicates'], true],
+                        paint: {
+                            'circle-color': 'white',
+                            'circle-radius': 12,
+                            'circle-blur': 0.8,
+                            'circle-opacity': 0.2
+                        }
+                    }, 'ResiAll');
+
+                    map.on('mousemove', 'ResiAll', (e) => {
+                        const features = map.queryRenderedFeatures(e.point, { layers: ['ResiAll'] });
+
+                        if (features.length <= 1) {
+                            map.getSource('resi2').setData(originalGeoJSON);
+                            return;
+                        }
+
+                        const fanned = JSON.parse(JSON.stringify(originalGeoJSON));
+                        const centerCoord = features[0].geometry.coordinates;
+                        const angleStep = (2 * Math.PI) / features.length;
+                        const radius = 0.0001; // ~11 meters offset
+
+                        features.forEach((f, i) => {
+                            const idx = fanned.features.findIndex(orig => orig.id === f.id);
+                            if (idx === -1) return;
+                            const angle = i * angleStep;
+                            const dx = radius * Math.cos(angle);
+                            const dy = radius * Math.sin(angle);
+                            fanned.features[idx].geometry.coordinates = [
+                                centerCoord[0] + dx,
+                                centerCoord[1] + dy
+                            ];
+                        });
+
+                        map.getSource('resi2').setData(fanned);
+                    });
+
+                    map.on('mouseleave', 'ResiAll', () => {
+                        map.getSource('resi2').setData(originalGeoJSON);
+                    });
+                });
+        });
+    </script>
+</body>
+
+</html>
