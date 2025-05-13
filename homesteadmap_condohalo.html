@@ -23,7 +23,42 @@
 </head>
 
 <body>
+    <style>
+        .legend {
+            background-color: #fff;
+            border-radius: 3px;
+            bottom: 30px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            font:
+                12px/20px 'Helvetica Neue',
+                Arial,
+                Helvetica,
+                sans-serif;
+            padding: 10px;
+            position: absolute;
+            right: 10px;
+            z-index: 1;
+        }
+
+        .legend h4 {
+            margin: 0 0 10px;
+        }
+
+        .legend div span {
+            border-radius: 50%;
+            display: inline-block;
+            height: 10px;
+            margin-right: 5px;
+            width: 10px;
+        }
+    </style>
     <div id="map"></div>
+    <div id="map"></div>
+    <div id="state-legend" class="legend">
+        <div><span style="background-color: #1E88E5"></span>Homestead exemption</div>
+        <div><span style="background-color: #FFC107"></span>No homestead exemption</div>
+        <div>White halo indicates more than one unit; hover to reveal all units.</div>
+    </div>
     <script>
         mapboxgl.accessToken = 'pk.eyJ1Ijoic2FyYWJyZW50IiwiYSI6ImNtMHpsb2Q4NTAwemoybHExbnB6eHVvZ2kifQ.nH0hUSv3IGzX6MkYB_cSmA';
         const map = new mapboxgl.Map({
@@ -58,21 +93,21 @@
                 .then(res => res.json())
                 .then(data => {
                     // Store original data for restoration later
-// 🔧 Step 1: Count duplicate coordinates
-const coordMap = {};
-data.features.forEach(f => {
-  const key = f.geometry.coordinates.join(',');
-  coordMap[key] = (coordMap[key] || 0) + 1;
-});
+                    // 🔧 Step 1: Count duplicate coordinates
+                    const coordMap = {};
+                    data.features.forEach(f => {
+                        const key = f.geometry.coordinates.join(',');
+                        coordMap[key] = (coordMap[key] || 0) + 1;
+                    });
 
-// 🔧 Step 2: Tag features with hasDuplicates
-data.features.forEach(f => {
-  const key = f.geometry.coordinates.join(',');
-  f.properties.hasDuplicates = coordMap[key] > 1;
-});
+                    // 🔧 Step 2: Tag features with hasDuplicates
+                    data.features.forEach(f => {
+                        const key = f.geometry.coordinates.join(',');
+                        f.properties.hasDuplicates = coordMap[key] > 1;
+                    });
 
-// 🔧 Step 3: Now clone with tags intact
-originalGeoJSON = JSON.parse(JSON.stringify(data));
+                    // 🔧 Step 3: Now clone with tags intact
+                    originalGeoJSON = JSON.parse(JSON.stringify(data));
 
                     map.addSource('resi2', {
                         type: 'geojson',
@@ -131,8 +166,8 @@ originalGeoJSON = JSON.parse(JSON.stringify(data));
                             const dx = radius * Math.cos(angle);
                             const dy = radius * Math.sin(angle);
                             fanned.features[idx].geometry.coordinates = [
-                                centerCoord[0] + (dx*1.5),
-                                centerCoord[1] + (dy*1)
+                                centerCoord[0] + (dx * 1.5),
+                                centerCoord[1] + (dy * 1)
                             ];
                         });
 
